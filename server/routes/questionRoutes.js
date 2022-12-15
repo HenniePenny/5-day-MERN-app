@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
       .catch((err) => {
         res.status(400).send({
           //!Why status in quotes?
-          status: "false",
+          status: false,
           message: "Question could not be added",
         });
       });
@@ -58,13 +58,13 @@ router.get("/", async (req, res) => {
       .then((doc) => {
         res.status(200).send(doc);
       })
-      .catch((error) => {
+      .catch((err) => {
         res.status(500).send({
           status: false,
           message: "Unable to get the questions",
         });
       });
-  } catch (error) {
+  } catch (err) {
     res.status(500).send({
       status: false,
       message: "Server error while getting questions",
